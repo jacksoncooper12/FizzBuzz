@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Coder Foundry MiniSite Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .btnWide {
+            width: 100%
+        }
+
+        .fizzbuzz {
+            color: green;
+            font-size: large;
+        }
+
+        .fizz {
+            color: blue;
+            font-size: large;
+        }
+
+        .buzz {
+            color: red;
+            font-size: large;
+        }
+        .resultpad {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Index.html">Challenge Name Here</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Solve.html">Solve</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Code.html">Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog Post/YouTube Explanation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center h1">
+                FIZZ-BUZZ
+            </div>
+        </div><hr />
+        <div class="row">
+            <div class="col text-center h3">
+                Please enter two integers that we will refer to as FizzNum and BuzzNum.
+            </div>
+        </div>
+        <div class="row resultpad">
+            <div class="col">
+                <input id="fbInput1" class="btnWide" placeholder="Enter FizzNum" />
+            </div>
+            <div class="col">
+                <input id="fbInput2" class="btnWide" placeholder="Enter BuzzNum" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button id="btnFB" class="btn btn-primary btnWide">Run FizzBuzz</button>
+            </div>
+            <div class="col-6">
+                <button id="clear" class="btn btn-success btnWide">Clear</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col">
+                <p id="fbOut"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+
+        $("#btnFB").on("click", function () {
+            let fizzNum = parseInt($("#fbInput1").val());
+            let buzzNum = parseInt($("#fbInput2").val());
+            let fizzMod = 0;
+            let buzzMod = 0;
+            let output = new Array();
+            for (let loop = 1; loop <= 100; loop++) {
+                fizzMod = loop % fizzNum;
+                buzzMod = loop % buzzNum;
+                if (fizzMod == 0 && buzzMod == 0) {
+                    output.push(`${loop} : <span class='fizzbuzz'>FizzBuzz</span>`)
+                }
+                else if (fizzMod == 0)
+                    output.push(`${loop} : <span class='fizz'>Fizz</span>`)
+                else if (buzzMod == 0)
+                    output.push(`${loop} : <span class='buzz'>Buzz</span>`)
+                else 
+                    output.push(`${loop} : none`);              
+            }
+            $("#fbOut").html(output.join(" | "));
+        })
+        $(document).ready(function () {
+            $("#fbInput1").keydown(function (event) {
+                if (event.which === 13) {
+                    $("#btnFB").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#fbInput2").keydown(function (event) {
+                if (event.which === 13) {
+                    $("#btnFB").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#fbInput1").keydown(function (event) {
+                if (event.which === 46) {
+                    $("#clear").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#fbInput2").keydown(function (event) {
+                if (event.which === 46) {
+                    $("#clear").click();
+                }
+            }
+            )
+        });
+        $("#clear").on("click", function () {
+            $("#fbOut").text("");
+            $("#fbInput1").val("");
+            $("#fbInput2").val("");
+        })
+    </script>
+</body>
+
+</html>
