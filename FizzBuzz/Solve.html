@@ -16,17 +16,29 @@
         .btnWide {
             width: 100%
         }
-
         .fizzbuzz {
             color: green;
             font-size: large;
         }
-
+        .fizzTitle{
+            color:blue;
+            font-size: 55px;
+        }
+        .buzzTitle {
+            color: red;
+            font-size: 55px;
+        }
+        .fizzbuzzTitle {
+            color: green;
+            font-size: 55px;
+        }
+        .smaller{
+            font-size:medium;
+        }
         .fizz {
             color: blue;
             font-size: large;
         }
-
         .buzz {
             color: red;
             font-size: large;
@@ -75,16 +87,16 @@
 
     <div class="container">
         <div class="row">
-            <div class="col text-center h1">
-                FIZZ-BUZZ
+            <div class="col text-center">
+                <span class="fizzTitle">FIZZ</span><span class="fizzbuzzTitle">-</span><span class="buzzTitle">BUZZ</span>
             </div>
         </div><hr />
         <div class="row">
             <div class="col">
-                <input id="loopInput" type="number" class="btnWide" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="5" placeholder="Loop Number" />
+                <input id="loopInput" type="text" class="btnWide" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="5" placeholder="Loop Number" />
             </div>
             <div class="col">
-                <h5>What number would you like to loop to?</h5>
+                <h5>What number would you like to loop to?<span class="smaller"> (100 is the default)</span></h5>
             </div>
         </div><hr />
         <div class="row">
@@ -129,10 +141,9 @@
             let fizzMod = 0;
             let buzzMod = 0;
             let output = new Array();
-            let loopnum = parseInt($("#loopInput").val());
-            if (loopnum == NaN){
-                loopnum = 100;
-                return loopnum;
+            let loopnum = 100;
+            if (parseInt($("#loopInput").val()) > 0){
+                loopnum = parseInt($("#loopInput").val());
             }
             for (let loop = 1; loop <= loopnum; loop++) {
                 fizzMod = loop % fizzNum;
