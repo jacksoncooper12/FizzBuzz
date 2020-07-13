@@ -1,0 +1,44 @@
+﻿body {
+}
+
+.btnWide {
+    width: 100%
+}
+
+.fizzbuzz {
+    color: green;
+    font-size: large;
+}
+
+.fizzTitle {
+    color: blue;
+    font-size: 55px;
+}
+
+.buzzTitle {
+    color: red;
+    font-size: 55px;
+}
+
+.fizzbuzzTitle {
+    color: green;
+    font-size: 55px;
+}
+
+.smaller {
+    font-size: medium;
+}
+
+.fizz {
+    color: blue;
+    font-size: large;
+}
+
+.buzz {
+    color: red;
+    font-size: large;
+}
+
+.resultpad {
+    padding-bottom: 20px;
+}
