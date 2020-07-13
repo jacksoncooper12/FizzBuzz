@@ -181,11 +181,19 @@
             }
             )
         });
+        $(document).ready(function () {
+            $("#loopInput").keydown(function (event) {
+                if (event.which === 46) {
+                    $("#clear").click();
+                }
+            }
+            )
+        });
         $("#clear").on("click", function () {
             $("#fbOut").text("");
             $("#fbInput1").val("");
             $("#fbInput2").val("");
-            $("#loopinput").val("");
+            $("#loopInput").val("");
         })
     </script>
 </body>
