@@ -81,7 +81,7 @@
         </div><hr />
         <div class="row">
             <div class="col">
-                <input id="loopInput" type="number" class="btnWide" placeholder="Loop Number" />
+                <input id="loopInput" type="number" class="btnWide" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="5" placeholder="Loop Number" />
             </div>
             <div class="col">
                 <h5>What number would you like to loop to?</h5>
@@ -130,8 +130,10 @@
             let buzzMod = 0;
             let output = new Array();
             let loopnum = parseInt($("#loopInput").val());
-            if (loopnum == undefined)
+            if (loopnum == NaN){
                 loopnum = 100;
+                return loopnum;
+            }
             for (let loop = 1; loop <= loopnum; loop++) {
                 fizzMod = loop % fizzNum;
                 buzzMod = loop % buzzNum;
