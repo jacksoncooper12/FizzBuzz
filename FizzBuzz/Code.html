@@ -51,25 +51,88 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1 class="mt-5">This Page shows your JS code</h1>
-                <p class="lead">You need to use a Syntax Highlighter - Prism.js is default</p>
-                <ul class="list-unstyled">
-                    <li>Code with highlighter</li>
-                    <li>Will display on this page</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <!-- Code -->
+    <pre>
+        <code class="language-javascript">
+        $("#btnFB").on("click", function () {
+            let fizzNum = parseInt($("#fbInput1").val());
+            let buzzNum = parseInt($("#fbInput2").val());
+            let fizzMod = 0;
+            let buzzMod = 0;
+            let output = new Array();
+            let loopnum = 100;
+            if (parseInt($("#loopInput").val()) > 0){
+                loopnum = parseInt($("#loopInput").val());
+            }
+            for (let loop = 1; loop <= loopnum; loop++) {
+                fizzMod = loop % fizzNum;
+                buzzMod = loop % buzzNum;
+                if (fizzMod == 0 && buzzMod == 0) {
+                    output.push(`${loop} : <span class='fizzbuzz'>FizzBuzz</span>`)
+                }
+                else if (fizzMod == 0)
+                    output.push(`${loop} : <span class='fizz'>Fizz</span>`)
+                else if (buzzMod == 0)
+                    output.push(`${loop} : <span class='buzz'>Buzz</span>`)
+                else 
+                    output.push(`${loop} : none`);              
+            }
+            $("#fbOut").html(output.join(" | "));
+        })
+        $(document).ready(function () {
+            $("#fbInput1").keydown(function (event) {
+                if (event.which === 13) {
+                    $("#btnFB").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#fbInput2").keydown(function (event) {
+                if (event.which === 13) {
+                    $("#btnFB").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#fbInput1").keydown(function (event) {
+                if (event.which === 46) {
+                    $("#clear").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#fbInput2").keydown(function (event) {
+                if (event.which === 46) {
+                    $("#clear").click();
+                }
+            }
+            )
+        });
+        $(document).ready(function () {
+            $("#loopInput").keydown(function (event) {
+                if (event.which === 46) {
+                    $("#clear").click();
+                }
+            }
+            )
+        });
+        $("#clear").on("click", function () {
+            $("#fbOut").text("");
+            $("#fbInput1").val("");
+            $("#fbInput2").val("");
+            $("#loopInput").val("");
+        })
+        </code>
+    </pre>
 
     <!-- Bootstrap core JavaScript -->
     <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="script/prism.js"></script>
 </body>
 
 </html>
