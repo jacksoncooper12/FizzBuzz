@@ -70,6 +70,7 @@
     <Content Include="Code.html" />
     <Content Include="css\main.css" />
     <Content Include="css\prism.css" />
+    <Content Include="images\newcarb.jpg" />
     <Content Include="Index.html" />
     <Content Include="script\main.js" />
     <Content Include="script\prism.js" />
