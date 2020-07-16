@@ -68,3 +68,6 @@
 .blue{
     color:blue
 }
+.buttonRound {
+    border-radius: 8px;
+}
